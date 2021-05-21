@@ -1,6 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap");
+@import "vars";
 
 body {
-    background-color: #f3f3f3;
-    font-family: 'Raleway', sans-serif;
+    background-color: darken($dark, 5%);
+    color: $dark;
+    font-family: "Raleway", sans-serif;
+    padding-top: 3rem;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 3.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid lighten($dark, 20%);
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: $gold;
+    border-color: none;
+    .card-body {
+        padding: 1.5rem;
+    }
+}
+
+.alert {
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-block;
+    &-danger {
+        background-color: $blood;
+        border: none;
+        color: $gold;
+    }
+}
+
+.form-group {
+    .form-control {
+        border-color: lighten($dark, 20%);
+        background-color: $gold;
+        border-radius: 0;
+        font-weight: 700;
+        font-size: 1rem;
+
+        &:focus {
+            box-shadow: 0 0 0 0.25rem $white;
+            border-color: $white;
+        }
+    }
+    .form-label {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+        margin-top: 1rem;
+        font-size: 12px;
+    }
 }

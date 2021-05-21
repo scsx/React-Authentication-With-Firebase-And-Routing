@@ -1,18 +1,28 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import Signup from "./Signup";
-
+import React from "react"
+import { Container, Jumbotron } from "react-bootstrap"
+import { AuthProvider } from "../contexts/AuthContext"
+import Signup from "./Signup"
 
 function App() {
     return (
-        <Container
-            className="d-flex align-items-center justify-content-center"
-            style={{ minHeight: "100vh" }}>
-            <div className="w-100" style={{ maxWidth: "400px" }}>
-                <Signup />
-            </div>
-        </Container>
-    );
+        <AuthProvider>
+            {/* <Jumbotron>
+                <Container>
+                    <h2>
+                        React Authentication Crash Course With Firebase And
+                        Routing
+                    </h2>
+                </Container>
+            </Jumbotron> */}
+            <Container
+                className='d-flex justify-content-center'
+                style={{ minHeight: "100vh" }}>
+                <div className='w-100' style={{ maxWidth: "500px" }}>
+                    <Signup />
+                </div>
+            </Container>
+        </AuthProvider>
+    )
 }
 
-export default App;
+export default App
