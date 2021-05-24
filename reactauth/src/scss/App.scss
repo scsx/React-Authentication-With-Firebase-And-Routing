@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap");
 @import "vars";
 
 body {
     background-color: darken($dark, 5%);
     color: $dark;
     font-family: "Raleway", sans-serif;
-    padding-top: 3rem;
 }
 
 h1 {
@@ -21,6 +20,24 @@ h1 {
     border-color: none;
     .card-body {
         padding: 1.5rem;
+    }
+}
+
+.btn-group {
+    border-radius: 0;
+
+    .btn {
+        border-radius: 0;
+        &.btn-outline-dark {
+            border-color: lighten($dark, 20%);
+            font-weight: 700;
+            &:hover {
+                border-color: darken($dark, 5%);
+            }
+            small {
+                font-size: 0.8rem;
+            }
+        }
     }
 }
 
@@ -56,4 +73,26 @@ h1 {
         margin-top: 1rem;
         font-size: 12px;
     }
+}
+
+.navbar {
+    .navbar-brand {
+        font-weight: 900;
+        letter-spacing: 8px;
+        color: darken($gold, 5%);
+    }
+    .nav-link {
+        font-weight: 700;
+    }
+}
+
+.signup {
+    min-width: 460px;
+    margin-top: 3rem;
+}
+
+.dashboard {
+    width: 100%;
+    min-width: 460px;
+    margin-top: 3rem;
 }
