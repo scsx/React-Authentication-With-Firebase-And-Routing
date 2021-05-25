@@ -44,6 +44,7 @@ export default function Signup() {
                                 <Form.Control
                                     type='email'
                                     ref={emailRef}
+                                    autoComplete='off'
                                     required
                                 />
                             </Form.Group>
@@ -52,6 +53,7 @@ export default function Signup() {
                                 <Form.Control
                                     type='password'
                                     ref={passwordRef}
+                                    autoComplete='off'
                                     required
                                 />
                             </Form.Group>

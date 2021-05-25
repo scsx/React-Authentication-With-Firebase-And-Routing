@@ -33,8 +33,10 @@ function App() {
                 <Router>
                     <AuthProvider>
                         <Switch>
+                            {/* Login needed */}
                             <PrivateRoute exact path='/' component={Dashboard} />
                             <PrivateRoute exact path='/update-profile' component={UpdateProfile} />
+                            {/* Free to visit */}
                             <Route path='/login' component={Login} />
                             <Route path='/signup' component={Signup} />
                             <Route path='/forgot-password' component={ForgotPassword} />
