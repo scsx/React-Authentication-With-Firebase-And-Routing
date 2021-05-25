@@ -1,17 +1,16 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, ButtonGroup, Card, Alert } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
 
 export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { signup } = useAuth()
+    const { login } = useAuth()
     const [error, setError] = useState("")
     // Loading to prevent multiple clicks
     const [loading, setLoading] = useState(false)
-    // Dev only
-    const [dummyUser, setDummyUser] = useState({})
+    const history = useHistory()
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -19,18 +18,12 @@ export default function Login() {
         try {
             setError("") // Reset msg
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await login(emailRef.current.value, passwordRef.current.value)
+            history.push("/") // Log in successfull
         } catch {
-            setError("Failed to create account")
+            setError("Failed to log in")
         }
         setLoading(false)
-    }
-    // Dev only
-    function fillDevUser() {
-        setDummyUser({
-            email: "tom@email.com",
-            pass: "09bjhieb"
-        })
     }
 
     return (
@@ -46,7 +39,6 @@ export default function Login() {
                                 <Form.Control
                                     type='email'
                                     ref={emailRef}
-                                    value={dummyUser.email}
                                     required
                                 />
                             </Form.Group>
@@ -55,28 +47,28 @@ export default function Login() {
                                 <Form.Control
                                     type='password'
                                     ref={passwordRef}
-                                    value={dummyUser.pass}
                                     required
                                 />
                             </Form.Group>
                             <ButtonGroup className='w-100 text-center mt-4'>
                                 <Button
-                                    variant='outline-dark'
-                                    size='lg'
-                                    onClick={fillDevUser}>
-                                    User 1 <small>[dev]</small>
-                                </Button>
-                                <Button
                                     variant='dark'
                                     size='lg'
                                     disabled={loading}
                                     type='submit'>
-                                    Log In
+                                    Log in
                                 </Button>
                             </ButtonGroup>
                         </Form>
                     </Card.Body>
                 </Card>
+                <div className='w-100 text-center mt-2'>
+                    <b>
+                        <Link className='text-white' to='/forgot-password'>
+                            Forgot password?
+                        </Link>
+                    </b>
+                </div>
                 <div className='w-100 text-center mt-2 text-gold'>
                     Need an account?{" "}
                     <b>

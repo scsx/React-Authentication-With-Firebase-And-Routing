@@ -1,27 +1,20 @@
 import React from "react"
-import { Container, Navbar, Nav, Popover, Button, OverlayTrigger } from "react-bootstrap"
+import { Container, Nav, Navbar } from "react-bootstrap"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import { AuthProvider } from "../contexts/AuthContext"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Signup from "./Signup"
-import Login from "./Login"
 import Dashboard from "./Dashboard"
-
-const popoverTest = (
-    <Popover id='popover-basic'>
-        <Popover.Title as='h3'>Popover right</Popover.Title>
-        <Popover.Content>
-            And here's some <strong>amazing</strong> content. It's very
-            engaging. right?
-        </Popover.Content>
-    </Popover>
-)
+import ForgotPassword from "./ForgotPassword"
+import Login from "./Login"
+import PrivateRoute from "./PrivateRoute"
+import Signup from "./Signup"
+import UpdateProfile from "./UpdateProfile"
 
 function App() {
     return (
         <div className='wrapper'>
             <Navbar bg='light' expand='lg'>
                 <Container>
-                    <Navbar.Brand href='/'>DASHBOARD</Navbar.Brand>
+                    <Navbar.Brand href='/'>REACT AUTH</Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse id='nav'>
                         <Nav className='mr-auto'>
@@ -34,21 +27,17 @@ function App() {
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                    <OverlayTrigger
-                        trigger='click'
-                        placement='left'
-                        overlay={popoverTest}>
-                        <Button variant='primary'>Click me to see</Button>
-                    </OverlayTrigger>
                 </Container>
             </Navbar>
             <Container className='d-flex justify-content-center'>
                 <Router>
                     <AuthProvider>
                         <Switch>
-                            <Route exact path='/' component={Dashboard} />
+                            <PrivateRoute exact path='/' component={Dashboard} />
+                            <PrivateRoute exact path='/update-profile' component={UpdateProfile} />
                             <Route path='/login' component={Login} />
                             <Route path='/signup' component={Signup} />
+                            <Route path='/forgot-password' component={ForgotPassword} />
                         </Switch>
                     </AuthProvider>
                 </Router>

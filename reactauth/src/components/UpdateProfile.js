@@ -3,32 +3,46 @@ import { Form, Button, ButtonGroup, Card, Alert } from "react-bootstrap"
 import { Link, useHistory } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
 
-export default function Signup() {
+export default function UpdateProfile() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup } = useAuth()
+    const { currentUser, updatePassword, updateEmail } = useAuth()
     const [error, setError] = useState("")
     // Loading to prevent multiple clicks
     const [loading, setLoading] = useState(false)
     const history = useHistory()
 
-    async function handleSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault()
 
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
             return setError("Passwords do not match") // Exit with return
         }
 
-        try {
-            setError("") // Reset msg
-            setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
-            history.push("/") // Log in successfull
-        } catch {
-            setError("Failed to create an account")
+        const promises = []
+        setLoading(true)
+
+        if (emailRef.current.value !== currentUser.email) {
+            promises.push(updateEmail(emailRef.current.value))
         }
-        setLoading(false)
+
+        if (passwordRef.current.value) {
+            promises.push(updatePassword(passwordRef.current.value))
+            console.log(promises)
+        }
+
+        // Run all promises as needed
+        Promise.all(promises)
+            .then(() => {
+                history.push("/") // Updated, back to Dashboard
+            })
+            .catch(() => {
+                setError("Failed to update account")
+            })
+            .finally(() => {
+                setLoading(false)
+            })
     }
 
     return (
@@ -36,7 +50,7 @@ export default function Signup() {
             <div className='signup'>
                 <Card>
                     <Card.Body>
-                        <h1>Sign Up</h1>
+                        <h1>Update Profile</h1>
                         {error && <Alert variant='danger'>{error}</Alert>}
                         <Form className='signform' onSubmit={handleSubmit}>
                             <Form.Group id='email'>
@@ -44,6 +58,7 @@ export default function Signup() {
                                 <Form.Control
                                     type='email'
                                     ref={emailRef}
+                                    defaultValue={currentUser.email}
                                     required
                                 />
                             </Form.Group>
@@ -52,7 +67,8 @@ export default function Signup() {
                                 <Form.Control
                                     type='password'
                                     ref={passwordRef}
-                                    required
+                                    placeholder='Leave blank to keep the same'
+                                    autoComplete='off'
                                 />
                             </Form.Group>
                             <Form.Group id='password-confirm'>
@@ -60,7 +76,7 @@ export default function Signup() {
                                 <Form.Control
                                     type='password'
                                     ref={passwordConfirmRef}
-                                    required
+                                    placeholder='Leave blank to keep the same'
                                 />
                             </Form.Group>
                             <ButtonGroup className='w-100 text-center mt-4'>
@@ -69,17 +85,16 @@ export default function Signup() {
                                     size='lg'
                                     disabled={loading}
                                     type='submit'>
-                                    Sign Up
+                                    Update
                                 </Button>
                             </ButtonGroup>
                         </Form>
                     </Card.Body>
                 </Card>
                 <div className='w-100 text-center mt-2 text-gold'>
-                    Already have an account?{" "}
                     <b>
-                        <Link className='text-white' to='/login'>
-                            Log in
+                        <Link className='text-white' to='/'>
+                            Cancel
                         </Link>
                     </b>
                 </div>

@@ -50,10 +50,17 @@ h1 {
     font-weight: 700;
     font-size: 1rem;
     display: inline-block;
+
     &-danger {
         background-color: $blood;
         border: none;
         color: $gold;
+    }
+
+    &-success {
+        background-color: $green;
+        border: none;
+        color: $white;
     }
 }
 
@@ -68,6 +75,12 @@ h1 {
         &:focus {
             box-shadow: 0 0 0 0.25rem $white;
             border-color: $white;
+        }
+
+        &::placeholder {
+            color: darken($gold, 40%);
+            font-style: italic;
+            font-weight: 400;
         }
     }
     .form-label {

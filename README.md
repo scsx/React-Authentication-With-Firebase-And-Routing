@@ -9,3 +9,4 @@ https://firebase.google.com/docs/auth/web/manage-users
 ## Notes
 **Font:** [Raleway](https://fonts.google.com/specimen/Raleway)
 https://www.notion.so/scsx/React-Authentication-Crash-Course-With-Firebase-And-Routing-WDS-Youtube-17de0335ba294204b6739ccd6418ca51
+**Temp email for testing** https://www.emailondeck.com/ 
