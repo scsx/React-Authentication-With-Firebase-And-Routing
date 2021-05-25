@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, ButtonGroup, Card, Alert } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
 
 export default function Signup() {
@@ -10,8 +11,6 @@ export default function Signup() {
     const [error, setError] = useState("")
     // Loading to prevent multiple clicks
     const [loading, setLoading] = useState(false)
-    // Dev only
-    const [dummyUser, setDummyUser] = useState({})
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -29,13 +28,6 @@ export default function Signup() {
         }
         setLoading(false)
     }
-    // Dev only
-    function fillDevUser() {
-        setDummyUser({
-            email: "tom@email.com",
-            pass: "09bjhieb"
-        })
-    }
 
     return (
         <>
@@ -50,7 +42,6 @@ export default function Signup() {
                                 <Form.Control
                                     type='email'
                                     ref={emailRef}
-                                    value={dummyUser.email}
                                     required
                                 />
                             </Form.Group>
@@ -59,7 +50,6 @@ export default function Signup() {
                                 <Form.Control
                                     type='password'
                                     ref={passwordRef}
-                                    value={dummyUser.pass}
                                     required
                                 />
                             </Form.Group>
@@ -68,17 +58,10 @@ export default function Signup() {
                                 <Form.Control
                                     type='password'
                                     ref={passwordConfirmRef}
-                                    value={dummyUser.pass}
                                     required
                                 />
                             </Form.Group>
                             <ButtonGroup className='w-100 text-center mt-4'>
-                                <Button
-                                    variant='outline-dark'
-                                    size='lg'
-                                    onClick={fillDevUser}>
-                                    User 1 <small>[dev]</small>
-                                </Button>
                                 <Button
                                     variant='dark'
                                     size='lg'
@@ -92,7 +75,11 @@ export default function Signup() {
                 </Card>
                 <div className='w-100 text-center mt-2 text-gold'>
                     Already have an account?{" "}
-                    <b className='text-white'>Log In</b>
+                    <b>
+                        <Link className='text-white' to='/login'>
+                            Log in
+                        </Link>
+                    </b>
                 </div>
             </div>
         </>
