@@ -3,7 +3,7 @@
 https://www.youtube.com/watch?v=PKwu15ldZ7k
 
 ## Notes
-- Notion "React Authentication Crash Course With Firebase And Routing - WDS Youtube"
+- **Notion** "React Authentication Crash Course With Firebase And Routing - WDS Youtube"
 - **Font:** [Raleway](https://fonts.google.com/specimen/Raleway)
 - **Temp email for testing** https://www.emailondeck.com/ 
 - **D3** https://www.pluralsight.com/guides/using-d3.js-inside-a-react-app
