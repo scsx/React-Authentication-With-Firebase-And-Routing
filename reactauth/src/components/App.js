@@ -10,6 +10,7 @@ import Signup from "./Signup"
 import UpdateProfile from "./UpdateProfile"
 import AccordionCpt from "./Accordion"
 import D3ex1 from "./D3-1"
+import Pagination from "./Pagination"
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                         <Nav className='mr-auto'>
                             <Nav.Link href='/signup'>signup</Nav.Link>
                             <Nav.Link href='/login'>login</Nav.Link>
+                            <Nav.Link href='/pagination'>pagination</Nav.Link>
                             <Nav.Link
                                 href='https://www.youtube.com/watch?v=PKwu15ldZ7k'
                                 target='_blank'>
@@ -53,6 +55,7 @@ function App() {
                             {/* Free to visit */}
                             <Route path='/login' component={Login} />
                             <Route path='/signup' component={Signup} />
+                            <Route path='/pagination' component={Pagination} />
                             <Route
                                 path='/forgot-password'
                                 component={ForgotPassword}
