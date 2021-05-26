@@ -10,7 +10,7 @@ import Signup from "./Signup"
 import UpdateProfile from "./UpdateProfile"
 import AccordionCpt from "./Accordion"
 import D3ex1 from "./D3-1"
-import Pagination from "./Pagination"
+import Pagination from "./Pagination/Pagination"
 
 function App() {
     return (
