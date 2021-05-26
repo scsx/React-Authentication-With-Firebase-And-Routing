@@ -8,6 +8,8 @@ import Login from "./Login"
 import PrivateRoute from "./PrivateRoute"
 import Signup from "./Signup"
 import UpdateProfile from "./UpdateProfile"
+import AccordionCpt from "./Accordion"
+import Motion from "./Motion"
 
 function App() {
     return (
@@ -34,12 +36,30 @@ function App() {
                     <AuthProvider>
                         <Switch>
                             {/* Login needed */}
-                            <PrivateRoute exact path='/' component={Dashboard} />
-                            <PrivateRoute exact path='/update-profile' component={UpdateProfile} />
+                            <PrivateRoute
+                                exact
+                                path='/'
+                                component={Dashboard}
+                            />
+                            <PrivateRoute
+                                path='/update-profile'
+                                component={UpdateProfile}
+                            />
+                            <PrivateRoute
+                                path='/accordion'
+                                component={AccordionCpt}
+                            />
+                            <PrivateRoute
+                                path='/motion'
+                                component={Motion}
+                            />
                             {/* Free to visit */}
                             <Route path='/login' component={Login} />
                             <Route path='/signup' component={Signup} />
-                            <Route path='/forgot-password' component={ForgotPassword} />
+                            <Route
+                                path='/forgot-password'
+                                component={ForgotPassword}
+                            />
                         </Switch>
                     </AuthProvider>
                 </Router>

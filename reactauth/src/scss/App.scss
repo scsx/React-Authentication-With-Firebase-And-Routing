@@ -21,7 +21,7 @@ h1 {
 
 .card {
     background-color: $gold;
-    border-color: none;
+    border-color: transparent;
     .card-body {
         padding: 1.5rem;
     }
@@ -108,8 +108,72 @@ h1 {
     margin-top: 3rem;
 }
 
-.dashboard {
+.fullpage {
     width: 100%;
     min-width: 460px;
-    margin-top: 3rem;
+    padding-top: 3rem;
+
+    main {
+        background-color: $white;
+        border-radius: 0.25rem;
+        padding: 1.5rem;
+
+        a {
+            font-weight: 700;
+        }
+
+        .accordion {
+            margin-top: 2rem;
+            .card-header {
+                cursor: pointer;
+
+                h5 {
+                    margin: 0;
+                    font-weight: 700;
+                    font-size: 1.15rem;
+                }
+            }
+        }
+    }
+
+    h1 {
+        margin-bottom: 4rem;
+    }
+
+    .userarea {
+        h3 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: darken($gold, 25%);
+            margin-bottom: 0;
+        }
+
+        p b {
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            width: 50%;
+        }
+    }
+
+    .menu {
+        margin-top: 1.5rem;
+
+        .list-group-item {
+            padding: 0.5rem 1.5rem;
+            background: none;
+            border-color: transparent;
+
+            &:hover,
+            &.active {
+                background-color: $dark;
+            }
+
+            a {
+                color: $white;
+            }
+        }
+    }
 }
