@@ -66,7 +66,7 @@ export default function AccordionCpt() {
                             <Link to='/accordion'>Accordion</Link>
                         </ListGroup.Item>
                         <ListGroup.Item as='li'>
-                            <Link to='/motion'>React Motion</Link>
+                            <Link to='/d3ex1'>D3 Ex. 1</Link>
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
@@ -80,23 +80,34 @@ export default function AccordionCpt() {
                             CardHeader component.
                         </p>
                         <Accordion defaultActiveKey='0'>
-                            <Card className="bg-light text-dark">
+                            <Card className='bg-light text-dark'>
                                 <Accordion.Toggle as={Card.Header} eventKey='0'>
                                     <h5>Click me!</h5>
                                 </Accordion.Toggle>
                                 <Accordion.Collapse eventKey='0'>
                                     <Card.Body>
-                                        <p>Accordions provide a way to restrict Card components to only open one at a time.</p>
+                                        <p>
+                                            Accordions provide a way to restrict
+                                            Card components to only open one at
+                                            a time.
+                                        </p>
                                     </Card.Body>
                                 </Accordion.Collapse>
                             </Card>
-                            <Card className="bg-light text-dark">
+                            <Card className='bg-light text-dark'>
                                 <Accordion.Toggle as={Card.Header} eventKey='1'>
                                     <h5>Click me!</h5>
                                 </Accordion.Toggle>
                                 <Accordion.Collapse eventKey='1'>
                                     <Card.Body>
-                                        <p>Accordions use Card components to provide styling of the Accordion components. Use AccordionToggle to provide a button that switches between each AccordionCollapse component.</p>
+                                        <p>
+                                            Accordions use Card components to
+                                            provide styling of the Accordion
+                                            components. Use AccordionToggle to
+                                            provide a button that switches
+                                            between each AccordionCollapse
+                                            component.
+                                        </p>
                                     </Card.Body>
                                 </Accordion.Collapse>
                             </Card>

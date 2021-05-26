@@ -9,7 +9,7 @@ import PrivateRoute from "./PrivateRoute"
 import Signup from "./Signup"
 import UpdateProfile from "./UpdateProfile"
 import AccordionCpt from "./Accordion"
-import Motion from "./Motion"
+import D3ex1 from "./D3-1"
 
 function App() {
     return (
@@ -49,10 +49,7 @@ function App() {
                                 path='/accordion'
                                 component={AccordionCpt}
                             />
-                            <PrivateRoute
-                                path='/motion'
-                                component={Motion}
-                            />
+                            <PrivateRoute path='/d3ex1' component={D3ex1} />
                             {/* Free to visit */}
                             <Route path='/login' component={Login} />
                             <Route path='/signup' component={Signup} />

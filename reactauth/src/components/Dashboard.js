@@ -58,19 +58,15 @@ export default function Dashboard() {
                     {/* Only dummy content from here */}
                     <ListGroup as='ul' className='menu'>
                         <ListGroup.Item as='li' active>
-                            <Link exact="true" to='/'>
+                            <Link exact='true' to='/'>
                                 Dashboard
                             </Link>
                         </ListGroup.Item>
                         <ListGroup.Item as='li'>
-                            <Link to='/accordion'>
-                                Accordion
-                            </Link>
+                            <Link to='/accordion'>Accordion</Link>
                         </ListGroup.Item>
                         <ListGroup.Item as='li'>
-                            <Link to='/motion'>
-                                React Motion
-                            </Link>
+                            <Link to='/d3ex1'>D3 Ex. 1</Link>
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
@@ -82,7 +78,7 @@ export default function Dashboard() {
                             tool that visually tracks, analyzes and displays{" "}
                             <a
                                 target='_blank'
-                                rel="noopener noreferrer"
+                                rel='noopener noreferrer'
                                 href='https://www.klipfolio.com/resources/kpi-examples'>
                                 key performance indicators (KPI)
                             </a>
